@@ -1,10 +1,8 @@
 # Exams
 
-Toto je tvoja stránka postavená na **MkDocs + Material**.
+PDFs, poznákmy a materiály na učenie.
 
-## Rýchly štart
+Vyber Ing. ročník:
 
-- Spusti lokálne: `mkdocs serve`
-- Build na deploy: `mkdocs build`
-
-Ďalej si sem pridaj svoje `.md` poznámky a (ak chceš) `.pdf` do `docs/`.
+- [1. ročník (Ing)](1.rocnik/index.md)
+- [2. ročník (Ing)](2.rocnik/index.md)

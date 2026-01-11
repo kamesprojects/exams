@@ -71,10 +71,12 @@ Monografia sa v kapitole 2 sústreďuje na základný typ Petriho sietí – **P
 
 ### Syntax (štruktúra) P/T siete
 **P/T sieť** je definovaná ako usporiadaná štvorica:
+
 \[
 N = (P, T, pre, post)
 \]
 kde:
+
 - \(P\) je konečná množina **miest**,
 - \(T\) je konečná množina **prechodov**,
 - \(pre : P \times T \to \mathbb{N}\) je **pre-podmienka** (koľko tokenov sa spotrebuje z miesta do prechodu),
@@ -86,14 +88,20 @@ _[*Zdroj: FMmono_SKor_SHud.pdf, str. 7*]_
 
 ### Značenie (stav) a inicializovaná sieť
 **Značenie** (marking) je funkcia:
-\[
+
+- \[
 m : P \to \mathbb{N}
 \]
-kde \(m(p)\) je počet tokenov v mieste \(p\). Pri \(P = \{p_1,\dots,p_k}\) sa značenie zapisuje aj vektorovo:
-\[
+kde \(m(p)\) je počet tokenov v mieste \(p\). 
+
+Pri \(P = \{p_1,\dots,p_k}\) sa značenie zapisuje aj vektorovo:
+
+- \[
 \vec{m} = (m(p_1),\dots,m(p_k))
 \]
+
 Inicializovaná sieť má aj počiatočné značenie \(m_0\):
+
 \[
 N_0 = (P, T, pre, post, m_0)
 \]  
@@ -102,14 +110,20 @@ _[*Zdroj: FMmono_SKor_SHud.pdf, str. 7–8*]_
 
 ### Sémantika (správanie) – vykonateľnosť a vykonanie prechodu
 Prechod \(t\in T\) je v značení \(m\) **vykonateľný** (enabled), ak:
-\[
+
+- \[
 \forall p\in P:\; m(p) \ge pre(p,t)
 \]
+
 Po vykonaní (odpálení) prechodu \(t\) dostaneme nové značenie \(m'\):
-\[
+
+- \[
 m'(p) = m(p) - pre(p,t) + post(p,t)
 \]
-Zmysel: tokeny sa odoberú z **pre-miest** prechodu a pridajú do jeho **post-miest**. 
+
+Zmysel: 
+
+- tokeny sa odoberú z **pre-miest** prechodu a pridajú do jeho **post-miest**. 
 
 _[*Zdroj: FMmono_SKor_SHud.pdf, str. 9*]_
 
@@ -125,7 +139,9 @@ _[*Zdroj: FMmono_SKor_SHud.pdf, str. 10*]_
 Invarianty sa v P/T sieťach získavajú **zo štruktúry siete** pomocou matíc (Pre, Post, incidenčná matica).
 
 ### Krok 1: Zostrojenie matíc siete
+
 Pre sieť s \(|P|=k\), \(|T|=n\) sa definujú:
+
 - **Pre-matica** \(Pre\in\mathbb{N}^{k\times n}\), kde \(Pre_{i,j} = pre(p_i,t_j)\),
 - **Post-matica** \(Post\in\mathbb{N}^{k\times n}\), kde \(Post_{i,j} = post(p_i,t_j)\),
 - **Incidenčná matica** \(C = Post - Pre\).  
@@ -134,34 +150,46 @@ _[*Zdroj: FMmono_SKor_SHud.pdf, str. 12*]_
 
 ### Krok 2: S-invarianty (miestové / place invariants)
 S-invariant je stĺpcový vektor \(X\in\mathbb{Z}^k\) (typicky hľadáme aj nezáporné riešenia), ktorý spĺňa:
-\[
+
+- \[
 C^T \cdot X = 0
 \]
+
 Takýto \(X\) vyjadruje lineárnu kombináciu počtov tokenov v miestach, ktorá sa **nemení** pri žiadnom odpálení prechodu. Pre všetky dosiahnuteľné značenia \(m\) platí:
-\[
+
+- \[
 \vec{m}\cdot X = \vec{m_0}\cdot X
 \]
+
 Tieto rovnice sa často interpretujú ako „axiomy“ siete.  
 
 _[*Zdroj: FMmono_SKor_SHud.pdf, str. 14–15*]_
 
 ### Krok 3: T-invarianty (prechodové / transition invariants)
+
 T-invariant je vektor \(Y\in\mathbb{Z}^n\), ktorý spĺňa:
-\[
+
+- \[
 C\cdot Y = 0
 \]
-Intuitívne: \(Y\) popisuje „multimnožinu“ prechodov, ktorej vykonaním (ak je realizovateľná ako nejaká sekvencia) sa sieť vráti do pôvodného značenia.  
+
+Intuitívne: 
+- \(Y\) popisuje „multimnožinu“ prechodov, ktorej vykonaním (ak je realizovateľná ako nejaká sekvencia) sa sieť vráti do pôvodného značenia.  
 
 _[*Zdroj: FMmono_SKor_SHud.pdf, str. 14*]_
 
 ### Krok 4: Riešenie sústavy rovníc
+
 V praxi:
+
 1) zostavíš \(C\),  
 2) vyriešiš homogénnu sústavu (napr. Gaussovou elimináciou),  
 3) vyberieš bázové riešenia (často so zmysluplnou interpretáciou, typicky nezáporné).
 
 ### Príklad (MutEx)
+
 V príklade MutEx sa pre S-invarianty zostaví sústava rovníc z \(C^T\cdot X=0\), z ktorej vyplývajú konkrétne vektory \(X\) a následne axiomy typu:
+
 - \(m(p_1)+m(p_2)=1\),
 - \(m(p_3)+m(p_4)=1\),
 - \(m(p_2)+m(p_4)+m(p_5)=1\),
@@ -175,6 +203,7 @@ _[*Zdroj: FMmono_SKor_SHud.pdf, str. 15–16*]_
 ## FM.5 Čo je B-Metóda? Aké špecifikačné komponenty sa v nej používajú? Ako je definovaný vývojový proces v B-Metóde?
 
 ### Čo je B-metóda
+
 **B-metóda** je formálna metóda orientovaná najmä na **vývoj softvéru** (najmä sekvenčných systémov), s dôrazom na:
 - formálnu špecifikáciu,
 - postupné **zjemňovanie (refinement)** až na implementovateľnú úroveň,
@@ -183,9 +212,11 @@ _[*Zdroj: FMmono_SKor_SHud.pdf, str. 15–16*]_
 _[*Zdroj: FMmono_SKor_SHud.pdf, str. 3, 52–54*]_
 
 ### Špecifikačné komponenty v B
+
 Základným špecifikačným stavebným prvkom je **abstraktný stroj (machine)**. Formálna špecifikácia systému je kolekcia abstraktných strojov, prepojených kompozičnými mechanizmami.
 
 Typický (zjednodušený) tvar stroja obsahuje klauzuly ako:
+
 - `MACHINE` (meno + parametre),
 - `CONSTRAINTS` (obmedzenia parametrov),
 - `SETS` (definície množín – enumerované alebo odložené),
@@ -204,26 +235,31 @@ Okrem `machine` sa v B vývoji objavujú aj špecifikačné komponenty typu **re
 _[*Zdroj: FMmono_SKor_SHud.pdf, str. 54*]_
 
 ### Vývojový proces v B-metóde (životný cyklus)
+
 Monografia uvádza nasledujúce fázy vývoja v B:
 
-1. **Analýza požiadaviek**  
-   Neformálne alebo štruktúrované modely problému a požiadaviek (napr. UML).
+**Analýza požiadaviek**  
 
-2. **Vývoj špecifikácie**
-   - (a) Formalizácia analytických modelov do abstraktných strojov (dekompozícia na komponenty),
-   - (b) Animácia na validáciu špecifikácie voči požiadavkám a testovacím scenárom,
-   - (c) Generovanie povinných dôkazov špecifikácie a ich dokazovanie.  
-   Výsledok: formálna abstraktná špecifikácia (kolekcia `machine`).
+- Neformálne alebo štruktúrované modely problému a požiadaviek (napr. UML).
 
-3. **Návrh**
-   - (a) Identifikácia dekompozície implementácie (vrátane znovupoužiteľných komponentov),
-   - (b) Zjemňovanie vybraných komponentov špecifikácie (refinement),
-   - (c) Generovanie povinných dôkazov zjemnení a ich dokazovanie (overenie, že zjemnenie zachováva invarianty).  
-   Výsledok: konkrétny formálny návrh až po `implementation`.
+**Vývoj špecifikácie**
 
-4. **Kódovanie, integrácia, testovanie**
-   - (a) Generovanie kódu z návrhov najnižšej úrovne / implementácií,
-   - (b) Testovanie vygenerovaného kódu podľa modelových prípadov.  
+- Formalizácia analytických modelov do abstraktných strojov (dekompozícia na komponenty),
+- Animácia na validáciu špecifikácie voči požiadavkám a testovacím scenárom,
+- Generovanie povinných dôkazov špecifikácie a ich dokazovanie.  
+- **Výsledok:** formálna abstraktná špecifikácia (kolekcia `machine`).
+
+**Návrh**
+
+- Identifikácia dekompozície implementácie (vrátane znovupoužiteľných komponentov),
+- Zjemňovanie vybraných komponentov špecifikácie (refinement),
+- Generovanie povinných dôkazov zjemnení a ich dokazovanie (overenie, že zjemnenie zachováva invarianty).  
+- **Výsledok:** konkrétny formálny návrh až po `implementation`.
+
+**Kódovanie, integrácia, testovanie**
+
+- Generovanie kódu z návrhov najnižšej úrovne / implementácií,
+- Testovanie vygenerovaného kódu podľa modelových prípadov.  
 
 _[*Zdroj: FMmono_SKor_SHud.pdf, str. 52–54*]_
 
@@ -232,7 +268,9 @@ _[*Zdroj: FMmono_SKor_SHud.pdf, str. 52–54*]_
 ## FM.6 Čo je zovšeobecnená substitúcia (generalised substitution)? Ako je formálne definovaná sémantika zovšeobecnenej substitúcie?
 
 ### Čo je zovšeobecnená substitúcia (GS)
+
 **Zovšeobecnená substitúcia (generalised substitution, GS)** je základný „príkazový“ konštrukt v B (časť GSL – Generalised Substitution Language), ktorým sa zapisujú telá operácií a inicializácia. GS zahŕňa:
+
 - priradenie \(x := e\),
 - `skip`,
 - nedeterministickú voľbu \(S_1 [] S_2\),
@@ -246,11 +284,13 @@ _[*Zdroj: FMmono_SKor_SHud.pdf, str. 52–54*]_
 _[*Zdroj: FMmono_SKor_SHud.pdf, str. 64–65*]_
 
 ### Formálna sémantika GS: predikátové transforméry (najslabšia pre-podmienka)
+
 Sémantika GS je definovaná pomocou **kalkulu najslabšej pre-podmienky** (weakest precondition calculus) v zmysle Dijkstru. Každá substitúcia \(S\) sa chápe ako **transformér predikátov**:
 
 - \([S]P\) znamená (intuícia): *najslabšia podmienka pred vykonaním S, ktorá zaručí postpodmienku P po vykonaní S*.
 
 Monografia uvádza transformačné pravidlá, napr.:
+
 - \([x := e]P \Leftrightarrow P[x := e]\)
 - \([skip]P \Leftrightarrow P\)
 - \([S_1 [] S_2]P \Leftrightarrow [S_1]P \land [S_2]P\)
@@ -263,7 +303,9 @@ Monografia uvádza transformačné pravidlá, napr.:
 _[*Zdroj: FMmono_SKor_SHud.pdf, str. 65*]_
 
 ### Ďalšie dôležité predikáty definované cez \([S]\cdot\)
+
 Okrem \([S]P\) monografia definuje:
+
 - **feasibility** (vykonateľnosť v zmysle „existuje korektný post-stav“):  
   \[
   fis(S) = \neg([S]false)
@@ -280,10 +322,13 @@ Okrem \([S]P\) monografia definuje:
 _[*Zdroj: FMmono_SKor_SHud.pdf, str. 67–68*]_
 
 ### Rovnosť (ekvivalencia) zovšeobecnených substitúcií
+
 Dve GS \(S_1\) a \(S_2\) sú rovnaké práve vtedy, keď pre každý predikát \(P\) dávajú ekvivalentnú najslabšiu pre-podmienku:
-\[
+
+- \[
 (S_1 = S_2) \Leftrightarrow \forall P:\; ([S_1]P \Leftrightarrow [S_2]P)
 \]
+
 Toto vystihuje, že význam GS je plne daný tým, ako transformuje postpodmienky na prepodmienky.
 
 _[*Zdroj: FMmono_SKor_SHud.pdf, str. 66*]_

@@ -2,5 +2,5 @@
 
 Prehľad predmetu PGI.
 
-- [Poznámky (MD)](md/index.md)
+- [Poznámky (<file>.md)](md/index.md)
 - [PDF](pdf/index.md)

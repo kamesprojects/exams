@@ -27,6 +27,9 @@ pip install mkdocs-material
 ```bash
 mkdocs serve
 ```
+```bash
+source .venv/Scripts/activate && mkdocs serve
+```
 
 Otvor `http://127.0.0.1:8000`.
 

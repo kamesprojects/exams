@@ -2,5 +2,5 @@
 
 Prehľad predmetu DSI.
 
-- [Poznámky (MD)](md/index.md)
+- [Poznámky (<file>.md)](md/index.md)
 - [PDF](pdf/index.md)
