@@ -8,6 +8,8 @@ theme:
     - navigation.tracking
     - navigation.sections
     - navigation.expand
+    - navigation.path
+    - navigation.footer
     - toc.follow
     - header.autohide
     - search.highlight
