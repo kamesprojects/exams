@@ -2,19 +2,10 @@
 
 ## 1) Virtuálne prostredie (Windows)
 
-V Git Bash nefunguje `source .venv/bin/activate`, lebo na Windows je aktivácia v `Scripts/`.
-
 ```bash
 python -m venv .venv
-
-# Git Bash (MINGW64):
 source .venv/Scripts/activate
-
-# PowerShell alternatíva:
-# .venv\Scripts\Activate.ps1
 ```
-
-Tip: `.venv` je „dot folder“, preto ho neuvidíš bez `ls -a`.
 
 ## 2) Inštalácia
 
