@@ -26,6 +26,10 @@ Tu sú PDF materiály k PGI.
 
 <iframe src="skuska2023.pdf" width="100%" height="900" style="border: 0;"></iframe>
 
+## otazky_2025.pdf
+
+<iframe src="otazky_2025.pdf" width="100%" height="900" style="border: 0;"></iframe>
+
 ## Stiahnuť
 
 - [vypracovane_otazky_od_Mateja.pdf](vypracovane_otazky_od_Mateja.pdf)
@@ -34,3 +38,4 @@ Tu sú PDF materiály k PGI.
 - [PG1_2021_Otazky_z_predmetu.pdf](PG1_2021_Otazky_z_predmetu.pdf)
 - [prednasky.pdf](prednasky.pdf)
 - [skuska2023.pdf](skuska2023.pdf)
+- [otazky_2025.pdf](otazky_2025.pdf)
