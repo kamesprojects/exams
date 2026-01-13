@@ -1,18 +1,4 @@
-# PSI – Poznámky (MD)
-
-## Obsah
-
-- [formal_methods.md](formal_methods.md)
-- [modularity_software-architecture.md](modularity_software-architecture.md)
-- [pc_languages_and_domain-specified_languages.md](pc_languages_and_domain-specified_languages.md)
-
----
-
-# Otázky (44)
-
----
-
-## Počítačové jazyky, doménovo-špecifické jazyky (24)
+## Počítačové jazyky, doménovo-špecifické jazyky
 
 ---
 
@@ -53,7 +39,7 @@ Transformer Generation)
 
 ---
 
-## Modularita a architektúra (14)
+## Modularita a architektúra
 
 ---
 
@@ -76,7 +62,7 @@ položky by mali obsahovať?
 
 ---
 
-## Fomálne metódy (6)
+## Fomálne metódy
 
 ---
 
