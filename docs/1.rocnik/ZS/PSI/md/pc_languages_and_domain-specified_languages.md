@@ -8,8 +8,16 @@
 ---
 
 **Porovnanie v skratke:**
-- `DSL`: vyššia abstrakcia pre konkrétnu doménu, pojmy domény sú „priamo“ v jazyku, často lepšia statická analýza vďaka explicitným doménovým konštruktom.
-- `GPL`: univerzálne použitie, ale riešenie doménových problémov často vyžaduje transformovať myslenie z domény problému do domény riešenia pomocou abstrakcií danej paradigmy.
+
+`DSL`: 
+
+- vyššia abstrakcia pre konkrétnu doménu, 
+- pojmy domény sú „priamo“ v jazyku, 
+- často lepšia statická analýza vďaka explicitným doménovým konštruktom.
+
+`GPL`: 
+
+- univerzálne použitie, ale riešenie doménových problémov často vyžaduje transformovať myslenie z domény problému do domény riešenia pomocou abstrakcií danej paradigmy.
 
 _[*Zdroj: VyvojDSL_v3.pdf, str. 7, 9-11*]_
 
@@ -19,6 +27,7 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 7, 9-11*]_
 `Paradigma programovacieho jazyka` predstavuje základný spôsob myslenia v programovaní sprostredkovaný počítačovým jazykom. Paradigmy sa odlišujú tým, aké pojmy a abstrakcie používajú na reprezentáciu programov a ako vedú programátora pri transformácii riešenia do implementácie. Uvádza sa aj, že dnešné GPL bývajú často `multiparadigmatické` (podporujú viac paradigiem).
 
 **Medzi najvýznamnejšie paradigmy v súčasnosti patria:**
+
 - objektovo-orientovaná paradigma,
 - komponentovo-orientovaná paradigma,
 - funkcionálna paradigma,
@@ -59,6 +68,7 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 7, 20-23, 31, 50, 65*]_
 - ontológie a modelovacie jazyky.
 
 **Podstatné je, že:**
+
 - abstraktná syntax (napr. metamodel alebo doménový model) opisuje pojmy a vzťahy, a je úzko spätá so sémantikou,
 - `vykonateľnosť` je dosiahnutá tým, že sa sémantika realizuje buď `interpretáciou` (priamo sa vyhodnocuje/ vykonávajú sa akcie), alebo `generovaním` (transformácia do iného jazyka alebo artefaktu).
 
@@ -71,11 +81,13 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 5, 7, 15, 31, 63-65*]_
 
 ### 5. Charakterizujte výhody a nevýhody použitia DSL v softvérovom vývoji
 **Výhody:** 
+
 - vyššia úroveň abstrakcie, 
 - riešenia sa zapisujú pojmami a štýlom domény,
 - možnosť efektívnejšej statickej analýzy programov, keďže pojmy domény sú explicitné. 
 
 **Nevýhody:** 
+
 - implementácia textových DSL je často náročná
 - vyžaduje expertné znalosti jazykových procesorov a gramatík a je často náročná
 - autor musí mať expertízu v doméne aj vo vývoji jazykov.
@@ -86,6 +98,7 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 9-12*]_
 
 ### 6. Argumentujte prečo je nejaký konkrétny jazyk DSL, resp. GPL
 **Dokument rozlišuje DSL a GPL primárne podľa cieľa a rozsahu použitia:**
+
 - jazyk je `DS`L, ak je navrhnutý na špecifikáciu riešení v konkrétnej problémovej doméne a používa pojmy domény,
 - jazyk `GPL` je určený na všeobecné použitie, umožňuje zapísať ľubovoľný algoritmus (jeho vyjadrovacia sila je ekvivalentná Turingovmu stroju) a paradigmy charakterizujú jeho štýl programovania.
 
@@ -99,6 +112,7 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 7, 9, 11*]_
 **Konkrétna syntax**: zápis abstraktných konštrukcií pomocou konkrétnych symbolov (textových alebo vizuálnych). Určuje, ako sú jazykové elementy reprezentované v podobe, ktorú môže interpretovať človek aj počítač. Existuje viacero foriem pre konkrétnu reprezentáciu jazyka. 
 
 **Medzi tieto formy patrí napríklad:** 
+
 - textová forma, 
 - vizuálna forma, 
 - respektíve kombinácia týchto foriem. 
@@ -110,6 +124,7 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 14-16, 19, 37*]_
 ---
 
 ### 8. Charakterizujte jazykový (sémantický) model a jeho zápis v OOP, uveďte príklad zápisu jazykového modelu v OOP
+
 Doménový (jazykový) model predstavuje abstrakciu domény a definuje pojmy, ich vzťahy a význam. Môže byť reprezentovaný diagramom tried a v implementácii aj triedami jazyka Java. 
 
 **Príklad zápisu doménového modelu v OOP:**
@@ -122,6 +137,7 @@ public abstract class Expression {
 ```
 
 **Zápis v OOP (Java):**
+
 - pojmy jazyka sa mapujú na doménové triedy a ich vzťahy na OOP väzby (napr. dedičnosť cez `extends`, rozhrania cez `implements`),
 - dokument priamo ukazuje mapovanie dedičnosti (napr. `Statement`, `If`, `While`) a ekvivalent v BNF: `Statement ::= If | While`,
 - v prístupe YAJCo sú doménové triedy základom pre AST (uzly AST sú objekty doménových tried) a sémantika sa realizuje ako metódy nad nimi.
@@ -134,10 +150,12 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 15, 29, 31, 35, 50*]_
 
 ### 9. Porovnajte externé a interné DSL, ich vlastnosti, výhody a nevýhody ich aplikácie
 **Externé DSL:** 
+
 - nie sú závislé od iných jazykov,
 - vyžadujú vlastný jazykový procesor (často generovaný parser generátorom), čo dáva úplnú kontrolu nad syntaxou a umožňuje syntaktickú aj sémantickú kontrolu, no vyžaduje znalosť technológií spracovania textu a generátorov procesorov. 
 
 **Interné DSL:** 
+
 - sú vložené do hostiteľského GPL (napr. java) a využívajú jeho mechanizmy,
 - nevyžadujú samostatný procesor a zjednodušujú implementáciu, ale syntax je ovplyvnená hostiteľským jazykom.
 
@@ -149,6 +167,7 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 20-21, 23, 66-68*]_
 
 ### 10. Aký je rozdiel medzi použitím generovania a interpretácie pri implementácii DSL
 **sémantika v jazykových procesoroch sa najčastejšie realizuje**:
+
 - `generatívnym prístupom`: z vety v DSL sa vygeneruje veta/artefakt v inom jazyku (napr. HTML výstup),
 - `interpretačným prístupom`: vstupná veta sa priamo interpretuje (vyhodnocuje), čo vedie k vykonaniu akcií.
 
@@ -160,17 +179,21 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 63-65*]_
 
 ### 11. Rozlíšte vzory pre implementácie interných DSL
 **Function Sequence:** 
+
 - veta je zapísaná ako postupnosť volaní definovaných funkcií,
 - implementácia typicky udržiava „rozostavaný“ stav (aktuálnu otázku, zoznam odpovedí) a pri prechode medzi časťami skladá výsledný model.
 
 **Nested Function:** 
+
 - veta je zapísaná ako postupnosť volaní vnorených funkcií,
 - dokument uvádza aj implementáciu buildera, kde sa vety skladajú cez volania, ktoré vytvárajú `Question`, `Answer`, atď.
 
 **Method Chaining:** 
+
 - veta je zapísaná ako zreťazenie volaní metód.
 
 **Literal List/Map:**
+
 - dokument demonštruje zápis viet DSL pomocou formátov `XML/JSON/YAML`, kde sa štruktúra prirodzene vyjadruje cez `zoznamy a mapy`,
 - následne sa objekty načítavajú/ukladajú (napr. cez knižnicu Jackson).
 
@@ -179,14 +202,18 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 66-71*]_
 ---
 
 ### 12. Porovnajte regulárne a bezkontextové jazyky - štruktúra gramatiky a automatu
+
 Formálne jazyky môžu byť definované gramatikou G = (N, T, P, S)
 **BNF / bezkontextové gramatiky:**
+
 - najbežnejší spôsob vyjadrenia abstraktnej a konkrétnej.
 
 **lexikálne symboly (tokeny):**
+
 - môžu byť definované regulárnymi výrazmi. 
 
 **Z pohľadu spracovania viet v texte to znamená:**
+
 - úroveň `lexikálnych jednotiek` sa definuje oddelene od vyššej štruktúry vety,
 - úroveň `syntaktickej štruktúry` vety je vyjadrená produkčnými pravidlami (BNF/CFG).
 
@@ -198,11 +225,14 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 6, 14-16, 22, 37, 42*]_
 
 ### 13. Opíšte lexikálnu, syntaktickú a sémantickú analýzu - fázy spracovania vety jazyka
 **Lexikálna fáza:** 
+
 - pracuje s lexikálnymi jednotkami (tokenmi), ktoré môžu byť definované regulárnymi výrazmi. 
 **Syntaktická fáza:** 
+
 - je založená na bezkontextovej gramatike/BNF a výsledkom je abstraktný syntaktický strom (AST) ako reprezentácia vety, kde konštrukcia AST prebieha od listov ku koreňu. 
 
 **Sémantická fáza:** 
+
 - využíva sémantické funkcie, ktoré mapujú syntaktické oblasti do sémantických oblastí významu.
 - realizovanú ako sémantické funkcie / metódy nad doménovými triedami (napr. generovanie, interpretácia), prípadne validácia obmedzení.
 
@@ -212,12 +242,14 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 16, 18, 30, 33, 37, 42, 50, 63*]_
 
 ### 14. Porovnajte prístupy pri spracovaní vety z jazyka - zhora nadol (top-down) a zdola nahor (bottom-up)
 **zhora nadol (top-down):**
+
 - postupuje od koreňa (štartovacieho symbolu gramatiky) smerom k listom (skutočným slovám vo vete). Snaží sa predpovedať, ktoré pravidlo gramatiky bolo použité,
 - je intuitívnejší pre ručné písanie parsera,
 - nezvláda ľavú rekurziu (musí sa z gramatiky odstrániť),
 - príklad nástroja: `JavaCC, ANTLR`a typické gramatiky sú LL (napr. LL(k)).
 
 **zdola nahor (bottom-up):**
+
 - začína od jednotlivých slov (listov) a postupne ich zoskupuje (redukuje) do vyšších syntaktických celkov, až kým nedosiahne koreň,
 - je silnejší, dokáže spracovať širšiu triedu gramatík (vrátane ľavej rekurzie),
 - je náročnejší na manuálnu implementáciu, zvyčajne sa generuje automaticky.
@@ -228,9 +260,11 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 26-27*]_
 ---
 
 ### 15. Opíšte ako funguje spracovanie viet na základe oddeľovačov - delimiter-directed translation (parsing)
+
 Pri definovaní konkrétnej syntaxe sa používajú lexikálne symboly, ktoré predchádzajú alebo nasledujú konštrukcie, a `oddeľovače` (napr. čiarky) na oddelenie postupnosti konštrukcií toho istého typu. Takéto delimiterové symboly pomáhajú parseru určiť hranice konštrukcií vo vete.
 
 **oddeľovače**:
+
 - anotácie **@Before, @After, @Separator** určujú lexikálne symboly, ktoré sa majú objaviť pred/za konštrukciou alebo medzi prvkami zoznamu,
 - tieto oddeľovače nemajú vplyv na sémantiku; slúžia na jednoznačné určenie štruktúry vety.
 
@@ -239,6 +273,7 @@ Pri definovaní konkrétnej syntaxe sa používajú lexikálne symboly, ktoré p
 ---
 
 ### 16. Napíšte gramatiku v BNF pre určený jazyk
+
 Príklad BNF (jazyk stavových automatov):
 ```bnf
 StateMachine ::= StartState State+ Transition+
@@ -258,9 +293,11 @@ Number ::= <VALUE>
 [*Zdroj: VyvojDSL_v3.pdf, str. 52*]
 
 ### 17. Opíšte stromové reprezentácie viet - strom odvodenia (parse tree), abstraktný syntaktický strom - ich vytvorenie a prechádzanie
+
 Bezkontextové gramatiky definujú množinu `stromov`, prostredníctvom ktorých je možné reprezentovať vety z jazyka (strom odvodenia). `Abstraktný syntaktický strom` je stromová reprezentácia abstraktnej štruktúry vety, kde každý uzol predstavuje výskyt jazykového pojmu. `AST` je vytvorený jazykovým procesorom zo vstupnej vety.
 
 **AST:**
+
 - parser rozpozná vetu a **konštruuje AST**, ktorého uzly sú **objekty doménových tried**,
 - AST sa konštruuje **od listov ku koreňu**,
 - sémantika sa vykonáva nad uzlami (napr. metódy, visitor v príkladoch).
@@ -272,6 +309,7 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 15, 17-18, 34, 50*]_
 ---
 
 ### 18. Charakterizujte prácu so symbolmi v programoch - tabuľka symbolov, oblasti viditeľnosti
+
 Textové jazyky používajú `identifikátory` na odkazovanie na výskyty pojmov. `Identifikátor` musí jednoznačne identifikovať `výskyt` pojmu a okrem mena rozhoduje aj `kontext` (oblasť platnosti). `Referencie` medzi výskytmi pojmov sú následne realizované v a`bstraktnom syntaktickom grafe` a môžu byť vytvorené nástrojom na vyhľadávanie referencií. `Jazykový procesor` po rozpoznaní vety určuje referencie a vytvára zdieľanie výskytov pojmov (graf).
 
 _[*Zdroj: VyvojDSL_v3.pdf, str. 52-55*]_
@@ -279,9 +317,11 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 52-55*]_
 ---
 
 ### 19. Opíšte generátory jazykových procesorov - načo slúžia a ako sa používajú (napr. Antlr)
+
 Generátor jazykových procesorov vytvára jazykový procesor z formálnej špecifikácie. Vstupom býva bezkontextová gramatika a výstupom zdrojový kód procesora. Generátory umožňujú určiť konkrétnu syntax aj sémantické akcie a často vedia automaticky generovať AST. 
 
 **Medzi známe generátory patria:** 
+
 - Lex/Yacc, 
 - JavaCC, 
 - ANTLR.
@@ -293,9 +333,11 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 20, 22, 26, 50*]_
 ---
 
 ### 20. Opíšte vzťah doménovo-špecifických jazykov a modelom riadeného vývoja softvéru - DSL a MDSD
+
 Vyvoj DSL je opisovaný ako prístup k budovaniu softvéru v kontexte modelom riadeného vývoja. Používanie DSL pri MDSD zjednodušuje realizáciu evolúcie, no vyžaduje riešenie kompozície DSL a mechanizmov ich evolúcie.
 
 **Dokument spája DSL s modelom riadeným vývojom najmä cez:**
+
 - `metamodely` ako prístup definície abstraktnej syntaxe (významné postavenie v MDSD; príklad UML),
 - vytváranie jazykov a nástrojov, ktoré možno začleniť do procesu tvorby riešenia „v prípade modelom riadeného vývoja“.
 
@@ -304,9 +346,11 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 5, 15, 77*]_
 ---
 
 ### 21. Charakterizujte jazykové prostredie - funkcie, význam, príklady (language workbenches)
+
 Language workbenche sú prostredia pre tvorbu DSL a doménové modelovanie. 
 
 **Umožňujú vytvárať:**
+
 - grafické dizajnéry pre vizuálne jazyky, 
 - návrh jazykov (najmä grafických),
 - písať transformácie z grafických modelov do výstupného jazyka
@@ -317,6 +361,7 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 23-25*]_
 ---
 
 ### 22. Opíšte princíp projekčných editorov, porovnajte ich s klasickými textovými editormi
+
 Zdroj explicitne nepomenúva projekčné editory. Uvádza však, že DSL môže mať textovú aj grafickú (vizuálnu) konkrétnu reprezentáciu a že language workbenche umožňujú vytvárať grafické dizajnéry pre vizuálne jazyky.
 
 _[*Zdroj: VyvojDSL_v3.pdf, str. 11, 25*]_
@@ -324,9 +369,11 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 11, 25*]_
 ---
 
 ### 23. Opíšte generovanie kódu z modelu a porovnajte – generovanie pomocou šablón vs. generovanie transformáciou
+
 Pri generovaní sémantiky transformáciou metódy opisujú, ako sa transformuje vstupná veta (abstraktný syntaktický graf) na výstupnú vetu v cieľovom jazyku. Alternatívou je použitie šablónovacích systémov, ktoré sú vhodné, keď je veľká časť výstupu nemenná a v šablóne je výstupný text ľahšie identifikovateľný. Zdroj tiež popisuje generovanie jazykového procesora z doménového modelu rozšíreného o anotácie konkrétnej syntaxe.
 
 **Dokument ukazuje dva praktické prístupy:**
+
 - `generovanie transformáciou „v kóde“`: metódy v Jave opisujú transformáciu vstupnej vety (AST) na výstupný text,
 - `generovanie pomocou šablónovacích systémov`: vhodné, keď je veľká časť výstupu nemenná, uvedený príklad je `Velocity`.
 
@@ -335,9 +382,11 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 30, 64-66*]_
 ---
 
 ### 24. Ako je možné prepojiť generovaný kód a ručne napísaný kód – význam jeho oddelenia
+
 **Cieľ oddelenia:** aby si mohol kód **znovu generovať bez straty ručných úprav** a aby bol jasný rozdiel medzi „mechanicky“ generovanou časťou a biznis logikou.
 
 **Bežné spôsoby prepojenia:**
+
 - **Generation Gap (dedenie):** generátor vytvorí základnú triedu, ručný kód ju rozšíri (`Foo extends FooGenerated`).
 - **Rozhranie + implementácia:** generátor vytvorí `IFoo`, ručný kód dodá implementáciu alebo adapter.
 - **Kompozícia/delegácia:** ručný kód obalí generovaný a deleguje volania (wrapper/facade).

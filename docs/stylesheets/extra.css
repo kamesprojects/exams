@@ -1,0 +1,28 @@
+/* Full-width layout overrides for MkDocs Material.
+   Keeps sidebars, but removes the fixed max-width on large screens. */
+
+@media screen and (min-width: 76.25em) {
+  .md-grid {
+    max-width: 100%;
+  }
+
+  .md-sidebar--primary {
+    margin-right: 5rem;
+  }
+
+  .md-sidebar--secondary {
+    margin-left: 5rem;
+  }
+
+  .md-main__inner {
+    max-width: 100%;
+  }
+
+  .md-content {
+    max-width: none;
+  }
+
+  .md-content__inner {
+    max-width: none;
+  }
+}
