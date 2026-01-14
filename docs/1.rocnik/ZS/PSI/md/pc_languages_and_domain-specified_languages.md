@@ -40,6 +40,7 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 7*]_
 
 ### 3. Opíšte spôsob použitia DSL v softvérovom vývoji - architektúra spracovania DSL
 `Abstraktná syntax jazyka` je definovaná doménovým modelom.Po vytvorení modelu sa určí konkrétna syntax (napr. anotáciami) a z anotovaného doménového modelu je vygenerovaný jazykový procesor. Jazykový procesor spracúva vety so znalosťou konkrétnej aj abstraktnej syntaxe a sémantiky. Dokument opisuje DSL v softvérovom vývoji najmä cez:
+
 - `(a) typ DSL`, 
 - `(b) jazykový procesor`.
 
@@ -63,6 +64,7 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 7, 20-23, 31, 50, 65*]_
 `Doménový model` je abstrakcia domény, ktorá definuje pojmy, ich vzťahy a význam. `Program` je veta vytvorená programovacím jazykom. 
 
 **Pojem `počítačové jazyky` môže okrem programovacích jazykov zahŕňať:**
+
 - doménovo-špecifické jazyky, 
 - údajové modely, 
 - ontológie a modelovacie jazyky.
@@ -99,7 +101,7 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 9-12*]_
 ### 6. Argumentujte prečo je nejaký konkrétny jazyk DSL, resp. GPL
 **Dokument rozlišuje DSL a GPL primárne podľa cieľa a rozsahu použitia:**
 
-- jazyk je `DS`L, ak je navrhnutý na špecifikáciu riešení v konkrétnej problémovej doméne a používa pojmy domény,
+- jazyk je `DSL`, ak je navrhnutý na špecifikáciu riešení v konkrétnej problémovej doméne a používa pojmy domény,
 - jazyk `GPL` je určený na všeobecné použitie, umožňuje zapísať ľubovoľný algoritmus (jeho vyjadrovacia sila je ekvivalentná Turingovmu stroju) a paradigmy charakterizujú jeho štýl programovania.
 
 _[*Zdroj: VyvojDSL_v3.pdf, str. 7, 9, 11*]_
@@ -227,6 +229,7 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 6, 14-16, 22, 37, 42*]_
 **Lexikálna fáza:** 
 
 - pracuje s lexikálnymi jednotkami (tokenmi), ktoré môžu byť definované regulárnymi výrazmi. 
+
 **Syntaktická fáza:** 
 
 - je založená na bezkontextovej gramatike/BNF a výsledkom je abstraktný syntaktický strom (AST) ako reprezentácia vety, kde konštrukcia AST prebieha od listov ku koreňu. 
@@ -310,7 +313,7 @@ _[*Zdroj: VyvojDSL_v3.pdf, str. 15, 17-18, 34, 50*]_
 
 ### 18. Charakterizujte prácu so symbolmi v programoch - tabuľka symbolov, oblasti viditeľnosti
 
-Textové jazyky používajú `identifikátory` na odkazovanie na výskyty pojmov. `Identifikátor` musí jednoznačne identifikovať `výskyt` pojmu a okrem mena rozhoduje aj `kontext` (oblasť platnosti). `Referencie` medzi výskytmi pojmov sú následne realizované v a`bstraktnom syntaktickom grafe` a môžu byť vytvorené nástrojom na vyhľadávanie referencií. `Jazykový procesor` po rozpoznaní vety určuje referencie a vytvára zdieľanie výskytov pojmov (graf).
+Textové jazyky používajú `identifikátory` na odkazovanie na výskyty pojmov. `Identifikátor` musí jednoznačne identifikovať `výskyt` pojmu a okrem mena rozhoduje aj `kontext` (oblasť platnosti). `Referencie` medzi výskytmi pojmov sú následne realizované v `abstraktnom syntaktickom grafe` a môžu byť vytvorené nástrojom na vyhľadávanie referencií. `Jazykový procesor` po rozpoznaní vety určuje referencie a vytvára zdieľanie výskytov pojmov (graf).
 
 _[*Zdroj: VyvojDSL_v3.pdf, str. 52-55*]_
 
