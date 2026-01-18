@@ -29,6 +29,9 @@ Otvor `http://127.0.0.1:8000`.
 ```bash
 mkdocs build
 ```
+```bash
+source .venv/Scripts/activate && mkdocs build
+```
 
 Výstup je v `site/`.
 
