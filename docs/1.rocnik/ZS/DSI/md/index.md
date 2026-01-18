@@ -2,9 +2,8 @@
 
 ## Vypracované:
 
--[matej](matej/index.md)
-
--[kiko](kiko/index.md)
+- [matej](matej/index.md)
+- [kiko](kiko/index.md)
 
 ## Otázky:
 1. Vysvetlite spôsob šírenia údajov v peer-to-peer systémoch pomocou klebetenia (gossiping). Ako nám tento spôsob môže pomôcť pri objavovaní konkrétnych služieb v neštruktúrovanom peer-to-peer systéme?
