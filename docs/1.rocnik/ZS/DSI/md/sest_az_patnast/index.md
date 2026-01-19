@@ -180,14 +180,42 @@ Tieto silnejšie modely však obmedzujú výkon a škálovateľnosť systému.
 
 ## 13. Majme distribuovaný systém, ktorý podporuje replikáciu objektov, v ktorej sú všetky volania metód úplne usporiadané. Predpokladajme tiež, že vyvolanie objektu je atómické. Poskytuje takýto systém vstupnú (entry) konzistenciu? A čo sekvenčnú konzistenciu?
 
-Ak sú `všetky volania metód úplne usporiadané (total order)`, znamená to, že `všetky procesy vidia volania v rovnakom poradí`. Ak je zároveň vyvolanie objektu `atómické`(napríklad vďaka automatickému uzamknutiu objektu pri volaní metódy), systém `poskytuje sekvenčnú konzistenciu`. Každý proces teda pozoruje rovnakú sekvenciu operácií nad objektmi.
+**1. Sekvenčná konzistencia: ÁNO**
 
-Takýto systém však a`utomaticky neposkytuje vstupnú (entry) konzistenciu`. Entry konzistencia vyžaduje, aby bol prístup ku konkrétnej dátovej položke možný `až po explicitnej synchronizácii viazanej na túto položku (napríklad získaním zámku)`. Samotné úplné usporiadanie volaní metód nestačí – systém by musel explicitne riadiť, ku ktorým dátam sa synchronizácia viaže.
+Tento systém poskytuje sekvenčnú konzistenciu.
 
-**➡️ Zhrnutie:**
+**Zdôvodnenie:**
 
-- Sekvenčná konzistencia: ÁNO- 
-- Entry konzistencia: NIE (bez dodatočných synchronizačných mechanizmov)
+- `Úplné usporiadanie:` Všetky uzly (repliky) vidia všetky volania metód (operácie zápisu aj čítania) v rovnakom poradí. 
+
+- `Zachovanie lokálneho poradia:` Keďže ide o volania metód v distribuovanom systéme s úplným usporiadaním, operácie od jedného konkrétneho klienta sú do tohto globálneho poradia zaradené v poradí, v akom ich klient vydal.
+
+**Splnenie definície:**
+
+- Ak všetci vidia rovnaké globálne poradie a toto poradie rešpektuje lokálne poradie každého procesora, je definícia sekvenčnej konzistencie naplnená.
+
+**2. Vstupná konzistencia (Entry Consistency):** ÁNO
+
+Tento systém poskytuje (a v podstate prekračuje) vstupnú konzistenciu.
+
+**Zdôvodnenie:**
+
+- `Viazanie na zámky:` Vstupná konzistencia vyžaduje, aby boli dáta (objekt) konzistentné v momente, keď uzol získa zámok (lock) k tomuto objektu.
+
+- `Automatické uzamykanie:` Tvoj systém garantuje, že každý objekt je pri volaní metódy automaticky uzamknutý. 
+
+To znamená, že žiadne dve metódy nemôžu bežať naraz nad tým istým objektom (serializácia).
+
+**Synchronizácia pred prístupom:** 
+
+Keďže volania sú úplne usporiadané, pred vykonaním metódy nad uzamknutým objektom musí systém zabezpečiť, že tento objekt obsahuje všetky predchádzajúce zmeny z globálneho poradia. Porovnanie a jemný rozdielHoci systém poskytuje obidve, je dôležité vidieť rozdiel v ich "prísnosti":
+
+- `Sekvenčná:` Vyžaduje, aby sme sa všetci zhodli na poradí operácií nad všetkými objektmi.
+- `Vstupná:` Vyžaduje konzistenciu len pre konkrétny objekt, ku ktorému práve pristupujeme (máme zámok).
+
+**Záver:** 
+
+Keďže tvoj systém používa úplné usporiadanie (globálna zhoda na všetkom), poskytuje oveľa silnejšiu záruku, než by vstupná konzistencia striktne vyžadovala. Vstupná konzistencia je tu "zadarmo" vďaka tomu, že každé volanie metódy je atomické a chránené zámkom.
 
 ---
 
