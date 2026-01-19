@@ -1,7 +1,7 @@
 # DSI – Poznámky (MD)
 
 ## Vypracované:
-
+- [sest_az_patnast](sest_az_patnast/index.md)
 - [matej](matej/index.md)
 - [kiko](kiko/index.md)
 
